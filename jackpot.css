@@ -32,6 +32,9 @@ body{
 #lever{
     padding: 1%;
 }
+#lever img{
+    width: 25%;
+}
 #casinoMachine button{
     background: none;
     border: none;

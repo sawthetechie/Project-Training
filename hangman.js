@@ -1,24 +1,26 @@
 const dataList = [
 {
     hint : "A person who wander",
-    word : "wanderer"
+    word : "Harry Potter"
 },
 {
     hint : "Animal that have trunk",
     word : "Elephant"
 }]
+
 const hintBox  = document.getElementById("hint");
 const wordBox = document.getElementById("word");
 const useBox = document.getElementById("useBox");
 const startButton = document.getElementById("start");
 const inputBox =document.getElementById("inputBox");
-const hp = document.getElementById("hp");
+const hp = document.querySelector(".life");
 let currentWord;
 let currentHint;
+let totalHp = 5;
 let fakeWord = [];
 let checked = false;
-let totalHp =5;
 let usedWord =[];
+let displayUseWord;
 
 
 
@@ -27,18 +29,29 @@ function check(event,i=0){
 
     let correctindex =[];
     let inputedData = event.target.value;
+    displayUseWord = '';
    
     for(let x=0; x < currentWord.length;x++){
         if(currentWord[x].toLowerCase() == inputedData.toLowerCase()){
-            correctindex += x;
+            correctindex.push(x);
             checked = true;
-            usedWord += [inputedData];
-        }
+            if(!usedWord.includes(currentWord[x].toLowerCase()))
+                {
+                    usedWord += [inputedData];
+                    displayUseWord = [inputedData];
+                }
+            }
     }
 
     if(checked == false && !usedWord.includes(inputedData)){
+        
+        //life ghatne
         totalHp -= 1;
+        console.log(hp.lastChild);
+        hp.removeChild(hp.lastElementChild);
+
         usedWord += [inputedData];
+        displayUseWord = [inputedData];
     }
 
     if(totalHp == 0){
@@ -56,14 +69,23 @@ function update(correctindex,inputedData){
     fakeWord[a] = inputedData;
     fakeWord = fakeWord.join('');
    }
+   
     inputBox.value = "" 
     wordBox.innerText ="";
-    useBox.innerText="";
+    // useBox.innerText="";
     dWord = document.createTextNode(fakeWord);
     wordBox.appendChild(dWord);
-    useBox.innerText = usedWord;
-    hp.innerText =  totalHp ;
 
+    if(displayUseWord){
+        thrashBox = document.createElement('div');
+        thrashWord = document.createTextNode(displayUseWord);
+        thrashBox.appendChild(thrashWord);
+        thrashBox.classList.add("usedwordList");
+        useBox.appendChild(thrashBox);
+    }
+    
+
+    //if correct word is found
     if(fakeWord == currentWord.toLowerCase()){
         alert("You found the word "+ fakeWord);
         hintBox.innerText="";
@@ -89,8 +111,15 @@ function create(currentIndex){
 
 
     for(x=0;x<currentWord.length;x++){
-        fakeWord += "-";
+        
+        if(currentWord[x] != " "){
+            fakeWord += "_";
+        }
+        else{
+            fakeWord += " ";
+        }
     }
+
     console.log(fakeWord);
     dWord = document.createTextNode(fakeWord)
     wordBox.appendChild(dWord); 
@@ -99,6 +128,5 @@ function create(currentIndex){
 
     inputBox.addEventListener("input",check);
 }
-
 
 

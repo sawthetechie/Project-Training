@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&family=VT323&display=swap');
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+body{
+    font-family: 'Agdasima', sans-serif;
+    font-family: 'VT323', monospace;
+}
+.major{
+    display: flex;
+    background-color: #F4C95D;
+}
+
+.major1, .major2{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    padding: 5%;
+    border: 2px solid black;
+    height: 100vh;
+}
+
+.life{
+    height: 20vh;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2vh;
+}
+
+.life i{
+    padding: 5px;
+    color:#660000;
+}
+
+.thrash{
+    height: 75vh;
+    font-size: 50px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 2vh;
+    position: relative;
+}
+
+.thrash h1{
+    text-align: center;
+    color:#EB5406;
+    opacity: 0.25;
+    position: absolute;
+    top: 30%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.answer {
+    height: 25vh;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2vh;
+    border-bottom: 2px solid black;
+}
+
+.answer input{
+    height: 10vh;
+    width: 80%;
+    text-align: center;
+}
+
+.hintbox {
+    height: 25vh;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2vh;
+    border-bottom: 2px solid black;
+    position: relative;
+}
+
+.hintbox i{
+    text-align: center;
+    color:#EB5406;
+    opacity: 0.25;
+    position: absolute;
+    top: 30%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.wordbox{
+    height: 25vh;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2vh;
+    border-bottom: 2px solid black;
+}
+
+#useBox{
+    display: flex;
+    flex-direction: row;
+}
+.usedwordList{
+    background-color: red;
+    margin: 2px;
+    border: 1px solid white;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    width:inherit;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#start{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding:1%;
+    margin: 1%;
+    font-size: 36px;
+}
